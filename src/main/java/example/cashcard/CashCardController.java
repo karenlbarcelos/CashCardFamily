@@ -10,7 +10,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/cashcards")
-public class CashCardController {
+class CashCardController {
 
     private final CashCardRepository cashCardRepository;
 
@@ -22,6 +22,7 @@ public class CashCardController {
     private ResponseEntity<CashCard> findById(@PathVariable Long requestedId) {
         //Find the CashCard using findById
         Optional<CashCard> cashCardOptional = cashCardRepository.findById(requestedId);
+
         if (cashCardOptional.isPresent()) {
             return ResponseEntity.ok(cashCardOptional.get());
         } else {
